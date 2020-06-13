@@ -1,0 +1,39 @@
+- POM stands for Project Object Model. 
+
+- Before creating a POM, 
+      project group (groupId): This is an Id of project's group. This is generally unique amongst an organization or a project. For example, a banking group com.company.bank has all bank related projects. 
+      its name (artifactId): This is an Id of the project. This is generally name of the project. For example, consumer-banking. Along with the groupId, the artifactId defines the artifact's location within the repository.
+      its version: This is the version of the project. Along with the groupId, It is used within an artifact's repository to separate versions from each other. 
+      
+    as these attributes help in uniquely identifying the project in repository.
+- It is fundamental unit of work in Maven. 
+- It is an XML file that resides in the base directory of the project as pom.xml.
+- POM also contains 
+  the goals and plugins. 
+  While executing a task or goal
+  Some of the configuration that can be specified in the POM are following −
+    project dependencies
+    plugins
+    goals
+    build profiles
+    project version
+    developers
+    mailing list
+    
+- POM Example
+    <project xmlns = "http://maven.apache.org/POM/4.0.0"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0
+       http://maven.apache.org/xsd/maven-4.0.0.xsd">
+       <modelVersion>4.0.0</modelVersion>
+       <groupId>com.companyname.project-group</groupId>
+       <artifactId>project</artifactId>
+       <version>1.0</version>
+    </project>
+    
+- Super POM
+The Super POM is Maven’s default POM. All POMs inherit from a parent or default (despite explicitly defined or not). This base POM is known as the Super POM, and contains values inherited by default.
+
+- An easy way to look at the default configurations of the super POM is by running the following 
+  command: mvn help:effective-pom
+

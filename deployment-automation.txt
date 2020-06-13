@@ -1,0 +1,27 @@
+Automate the deployment process by combining the following −
+  Maven, to build and release projects.
+  SubVersion, source code repository, to manage source code.
+  Remote Repository Manager (Jfrog/Nexus) to manage project binaries.
+  
+Maven Release Plug-in: The Maven does the following useful tasks using maven-release-plugin.
+
+> mvn release:clean
+It cleans the workspace in case the last release process was not successful.
+
+> mvn release:rollback
+Rollback the changes done to workspace code and configuration in case the last release process was not successful.
+
+>mvn release:prepare  
+Performs multiple number of operations, such as −
+  Checks whether there are any uncommitted local changes or not.
+  Ensures that there are no SNAPSHOT dependencies.
+  Changes the version of the application and removes SNAPSHOT from the version to make release.
+  Update pom files to SVN.
+  Run test cases.
+  Commit the modified POM files.
+  Tag the code in subversion  
+  Increment the version number and append SNAPSHOT for future release.
+  Commit the modified POM files to SVN.
+
+> mvn release:perform
+Checks out the code using the previously defined tag and run the Maven deploy goal, to deploy the war or built artifact to repository.

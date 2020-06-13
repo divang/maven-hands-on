@@ -1,0 +1,31 @@
+- A Build Lifecycle is a well-defined sequence of phases, which define the order in which the goals are to be executed.
+- a typical Maven Build Lifecycle consists of the following sequence of phases.
+    prepare-resources: Resource copying can be customized in this phase.
+    validate:	Validates if the project is correct and if all necessary information is available.
+    compile: Source code compilation is done in this phase.
+    Test: Tests the compiled source code suitable for testing framework.
+    package:	This phase creates the JAR/WAR package as mentioned in the packaging in POM.xml.
+    install:	This phase installs the package in local/remote maven repository.
+    Deploy:	Copies the final package to the remote repository.
+- There are always pre and post phases to register goals, which must run prior to, or after a particular phase.
+  1	validate: Validates whether project is correct and all necessary information is available to complete the build process.
+  2	initialize: Initializes build state, for example set properties.
+  3	generate-sources: Generate any source code to be included in compilation phase.
+  4	process-sources: Process the source code, for example, filter any value.
+  5	generate-resources: Generate resources to be included in the package.
+  6	process-resources: Copy and process the resources into the destination directory, ready for packaging phase.
+  7	compile: Compile the source code of the project.
+  8	process-classes: Post-process the generated files from compilation, for example to do bytecode enhancement/optimization on Java classes.
+  9 	generate-test-sources: Generate any test source code to be included in compilation phase.
+  10	process-test-sources: Process the test source code, for example, filter any values.
+  11	test-compile: Compile the test source code into the test destination directory.
+  12	process-test-classes: Process the generated files from test code file compilation.
+  13	test: Run tests using a suitable unit testing framework (Junit is one).
+  14	prepare-package: Perform any operations necessary to prepare a package before the actual packaging.
+  15	package: Take the compiled code and package it in its distributable format, such as a JAR, WAR, or EAR file.
+  16	pre-integration-test: Perform actions required before integration tests are executed. For example, setting up the required environment.
+  17	integration-test: Process and deploy the package if necessary into an environment where integration tests can be run.
+  18	post-integration-test: Perform actions required after integration tests have been executed. For example, cleaning up the environment.
+  19	verify: Run any check-ups to verify the package is valid and meets quality criteria.
+  20	install: Install the package into the local repository, which can be used as a dependency in other projects locally.
+  21	deploy: Copies the final package to the remote repository for sharing with other developers and projects.

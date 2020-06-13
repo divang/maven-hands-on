@@ -1,0 +1,31 @@
+- Build profile: is a set of configuration values, which can be used to set or override default values of Maven build. Using a build profile, you can customize build for different environments such as Production v/s Development environments.
+  Pass the profile name as argument using -P option.
+  >mvn test -Ptest
+  >mvn test -Pprod
+
+- Maven Plugins: Maven is actually a plugin execution framework where every task is actually done by plugins.
+  - A plugin generally provides a set of goals, which can be executed using the following syntax
+    - mvn [plugin-name]:[goal-name]
+    - maven-compiler-plugin's compile-goal by running the following command.
+      > mvn compiler:compile
+
+> mvn clean package
+> mvn clean compile
+- create documentatio
+>mvn site
+
+- SNAPSHOT: is a special version that indicates a current development copy. Maven automatically fetches the latest SNAPSHOT on daily basis, you can force maven to download latest snapshot build using -U switch to any maven command.
+  > mvn clean package -U
+  
+- SCM: Configures the SVN location from where Maven will check out the source code.
+- Repositories: Location where built WAR/EAR/JAR or any other artifact will be stored after code build is successful.
+- Plugin: maven-release-plugin is configured to automate the deployment process.  
+
+> mvn release:clean
+> mvn release:rollback
+> mvn release:prepare
+> mvn release:perform
+
+
+
+
